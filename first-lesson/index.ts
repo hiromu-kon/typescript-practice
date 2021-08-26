@@ -60,3 +60,33 @@ const coffee = {
  // Union型
 let unionType: number | string = 10
 let unionTypes: (number | string)[] = [21, 'hello']
+
+const apple: 'apple' = 'apple'  //-> appleしか入れられなくなる
+
+const num: 0 = 0
+
+
+// Union型と一緒に使うと便利
+let clothSize: 'small' | 'medium' | 'large' = 'large';
+
+const cloth = {
+	color: 'white',
+  size: clothSize   //-> sizeもlargeになる
+}
+
+
+// 何も返さない
+function sayHello(): void {
+	console.log('Hello')
+}
+
+console.log(sayHello());   //-> undefined
+
+
+// 決して何も返さない
+// neverを消して型推論にするとvoidになる
+function error(message: string): never {
+	throw new Error(message);
+}
+
+console.log(error('This is an error'))
