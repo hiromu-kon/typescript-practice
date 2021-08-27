@@ -90,3 +90,23 @@ function error(message: string): never {
 }
 
 console.log(error('This is an error'))
+
+
+const anotherAdd1 = add;  //-> const anotherAdd: (num1: number, num2: number) => number
+const anotherAdd2: (n1: number, n2: number) => number = add; // 明示的に型を宣言
+const anotherAdd3: (n1: number, n2: number) => number = function (num1: number, num2: number) :number {  // 無名関数にする
+	return num1 + num2
+};
+
+
+const doubleNumber1 = (num: number): number => num * 2;; // アロー関数
+const doubleNumber2: (num: number) => number = num => num * 2;   // 左につける場合
+
+function doubleAndHandle(num: number, cb: (num: number) => number): void {
+	const doubleNum = cb(num * 2);
+	console.log(num *2);
+}
+
+doubleAndHandle(21, doubleNum => {
+	return doubleNum
+});
