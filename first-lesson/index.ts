@@ -83,6 +83,27 @@ function sayHello(): void {
 console.log(sayHello());   //-> undefined
 
 
+let unknownInput: unknown;
+let anyInput: any;
+let text: string;
+
+// any: どんなものでも入れてて何にでも代入できる
+anyInput = 'hello';
+anyInput = 21;
+anyInput = true;
+
+text = anyInput; // OK!
+
+// unknown: 入れることはできるが使うときは注意する
+unknownInput = 'hello';
+unknownInput = 21;
+unknownInput = true;
+
+
+if (typeof unknownInput === 'string') {
+	text = unknownInput
+}
+
 // 決して何も返さない
 // neverを消して型推論にするとvoidになる
 function error(message: string): never {
