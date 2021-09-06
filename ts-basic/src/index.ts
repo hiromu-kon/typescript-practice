@@ -19,7 +19,7 @@ import { isUserSignedIn, isUserSignedIn2, sumProductsPrice } from './function/pa
 
 logMessage('Hello TypeScript!')
 logMessage5('Hello Type Signature!')
-isUserSignedIn('ABC', 'Torahack')
+isUserSignedIn('ABC', 'Hello')
 isUserSignedIn('123')
 isUserSignedIn2('ABC')
 const sum = sumProductsPrice(1000, 2000, 500, 3000, 250)
