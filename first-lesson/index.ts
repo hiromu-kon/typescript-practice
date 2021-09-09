@@ -125,9 +125,24 @@ const doubleNumber2: (num: number) => number = num => num * 2;   // 左につけ
 
 function doubleAndHandle(num: number, cb: (num: number) => number): void {
 	const doubleNum = cb(num * 2);
-	console.log(num *2);
 }
 
 doubleAndHandle(21, doubleNum => {
 	return doubleNum
 });
+
+
+class Person {
+	name: string;   // nameフィールド
+	constructor(initName: string) {
+		this.name = initName;
+	}
+
+	greeting() {
+		console.log(`Hello! My name is ${this.name}`);
+	}
+}
+
+const quill = new Person('Quill');
+
+quill.greeting();
