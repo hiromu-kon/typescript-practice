@@ -110,7 +110,6 @@ function error(message: string): never {
 	throw new Error(message);
 }
 
-console.log(error('This is an error'))
 
 
 const anotherAdd1 = add;  //-> const anotherAdd: (num1: number, num2: number) => number
@@ -139,7 +138,6 @@ class Person {
 	}
 
 	greeting() {
-		console.log(`Hello! My name is ${this.name}`);
 	}
 }
 
