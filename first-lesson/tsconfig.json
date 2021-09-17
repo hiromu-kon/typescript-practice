@@ -68,12 +68,5 @@
     /* Advanced Options */
     "skipLibCheck": true,                           /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
-  },
-  "exclude": [
-    "*.spec.ts",
-    "**/compiler.ts"  // どのディレクトリかなどは関係なく除外する(階層も関係なし)
-  ],
-  "include": [
-    "index.ts"     // include - exclude(excludeの方が強い)
-  ]
+  }
 }

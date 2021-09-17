@@ -18,6 +18,26 @@ class Teacher extends Person {
 	}
 }
 
+type Nameable = {
+	name: string;
+	nickName?: string;
+}
+
+const nameable: Nameable = {
+	name: 'Quill',
+	nickName: 'Quilla'
+}
+
+// メソッドにもつけることができる
+interface Human extends Nameable {
+	age: number;
+	greeting?(message: string): void;
+}
+
+class Developer1 implements Human {
+	constructor(public name: string, public age: number) {}
+}
+
 const teacher = Teacher.getInstance();
 const teacher2 = Teacher.getInstance();
 
