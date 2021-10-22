@@ -86,3 +86,84 @@ function havePet(pet: Pet) {
 
 havePet(new Bird());
 havePet(new Dog());
+
+class Dog {
+	kind: 'dog' = 'dog'
+	speak() {
+		console.log('bow-wow');
+	}
+}
+
+class Bird {
+	kind: 'bird' = 'bird'
+	speak() {
+		console.log('tweet-tweet');
+	}
+	fly() {
+		console.log('flutter');
+	}
+}
+
+type Pet = Dog | Bird;
+
+function havePet(pet: Pet) {
+	pet.speak();
+	switch (pet.kind) {
+		case 'bird':
+			pet.fly();
+	}
+}
+
+const input = document.getElementById('input');  // const input: HTMLElement | null
+
+input.value  // HTMLElementだとvalueが使えないためエラーになる
+
+
+// 下二つは同じものになるがJSXなどを使用している場合、タグとの区別が難しくなるためasの方を使う
+const input = <HTMLInputElement>document.getElementById('input');
+const input = document.getElementById('input') as HTMLInputElement;
+
+const input = document.getElementById('input');  
+// const input: HTMLElement | null
+
+const input = document.getElementById('input')!;  
+// const input: HTMLElement
+
+
+// 通常の場合
+interface Designer {
+	name: string;
+}
+
+const designer: Designer = {
+	name: 'Quill'
+}
+
+// designer.role = 'web'; 通常はメンバを追加することはできない
+
+
+/* インデックスシグネチャの場合
+   インデスクシグネチャを使用する場合はインデックスシグネチャの型に合わせないとエラーになる */
+
+interface Designer {
+	name: string;           // インデックスシグネチャを使用している場合、「age: number」などにすることはできない
+	[index: string]: string;
+}
+
+const designer: Designer = {
+	name: 'Quill',
+	role: 'web'
+}
+
+
+function toUpperCase(x: string): string;
+// function toUpperCase(x: number): number;  オーバーロードは複数作ることができる
+
+function toUpperCase(x: string | number): {
+	if (typeof x === 'string') {
+		return x.toUpperCase();
+	}
+	return x;
+}
+
+const upperHello = toUpperCase('hello');
