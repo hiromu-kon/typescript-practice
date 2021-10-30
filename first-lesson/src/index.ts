@@ -129,18 +129,3 @@ function doubleAndHandle(num: number, cb: (num: number) => number): void {
 doubleAndHandle(21, doubleNum => {
 	return doubleNum
 });
-
-
-class Person {
-	name: string;   // nameフィールド
-	constructor(initName: string) {
-		this.name = initName;
-	}
-
-	greeting() {
-	}
-}
-
-const quill = new Person('Quill');
-
-quill.greeting();
